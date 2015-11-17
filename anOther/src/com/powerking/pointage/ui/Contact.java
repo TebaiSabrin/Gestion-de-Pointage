@@ -29,7 +29,7 @@ public class Contact extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabelTitreContact = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtoncontact = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 153));
@@ -41,11 +41,11 @@ public class Contact extends javax.swing.JFrame {
         jLabelTitreContact.setForeground(new java.awt.Color(0, 153, 51));
         jLabelTitreContact.setText("Vous Pouvez Nous Contactez Sur :");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("Retour");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtoncontact.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtoncontact.setText("Retour");
+        jButtoncontact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtoncontactActionPerformed(evt);
             }
         });
 
@@ -62,9 +62,9 @@ public class Contact extends javax.swing.JFrame {
                         .addGap(57, 57, 57)
                         .addComponent(jLabelTitreContact, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                        .addGap(84, 84, 84)
+                        .addComponent(jButtoncontact, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,19 +73,19 @@ public class Contact extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
                 .addComponent(jLabelTitreContact, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                .addComponent(jButtoncontact, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtoncontactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoncontactActionPerformed
         // TODO add your handling code here:
         new Menu().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtoncontactActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,7 +123,7 @@ public class Contact extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtoncontact;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelTitreContact;
     // End of variables declaration//GEN-END:variables

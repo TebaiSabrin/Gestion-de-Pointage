@@ -5,7 +5,6 @@
  */
 package com.powerking.pointage.lib;
 
-
 import com.powerking.pointage.ui.Historique;
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,27 +28,46 @@ import javax.swing.event.ListSelectionEvent;
  *
  * @author delll
  */
- 
 public class AdminDAO {
+
     public Connection cnx;
     public int matricule;
-   
-    private String x1,x2;
-    
- public void connexion (){
-     try {
+
+    private String x1, x2;
+
+    public void connexion() {
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_pointage", "root", "");
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println(e.getMessage());
         }
-     
- } 
- 
- 
-  public static void remplirBD(String chemin, Connection cnx) throws FileNotFoundException, IOException, SQLException{
+
+    }
+
+    public boolean authentification(String login, String password) {
         Statement s = null;
-        int i=0;
+        String req = "SELECT * FROM admin where login ='" + login + "' AND pass ='" + password + "'";
+        try {
+            s = cnx.createStatement();
+            ResultSet rs = s.executeQuery(req);
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+        }
+ 
+ 
+  
+
+    public static void remplirBD(String chemin, Connection cnx) throws FileNotFoundException, IOException, SQLException {
+        Statement s = null;
+        int i = 0;
         String req = "";
         String req1 = "";
         s = cnx.createStatement();
@@ -61,29 +79,27 @@ public class AdminDAO {
         try {
             String line = br.readLine();
             while (line != null) {
-                if (i!=0){
+                if (i != 0) {
                     line = br.readLine();
-                    if (line!=null){
+                    if (line != null) {
                         String[] li = line.split(";");
-                        System.err.println(li.length+"");
-                        if (li.length == 5){
+                        System.err.println(li.length + "");
+                        if (li.length == 5) {
                             String[] p = li[4].split(" ");
                             String[] s1 = p[0].split(":");
                             String[] s2 = p[1].split(":");
                             int x1 = Integer.parseInt(s1[0]);
                             int x2 = Integer.parseInt(s2[0]);
-                            String str = ((x2-x1)*3)+"dt";
-                            req = "INSERT INTO pointage VALUES("+i+",'"+li[3]+"','"+p[0]+"','"+p[1]+"',"+li[0]+")";
-                            req1 = "INSERT INTO employe VALUES("+li[0]+",'"+li[1]+"','"+li[2]+"',"+(x2-x1)+","+(x2-x1)*3+")";
+                            String str = ((x2 - x1) * 3) + "dt";
+                            req = "INSERT INTO pointage VALUES(" + i + ",'" + li[3] + "','" + p[0] + "','" + p[1] + "'," + li[0] + ")";
+                            req1 = "INSERT INTO employe VALUES(" + li[0] + ",'" + li[1] + "','" + li[2] + "'," + (x2 - x1) + "," + (x2 - x1) * 3 + ")";
                             s.executeUpdate(req1);
-                        }
-                        else
-                        {
-                            req = "INSERT INTO pointage(id,mat,nom, departement,date) VALUES("+i+","+li[0]+",'"+li[1]+"','"+li[2]+"','"+li[3]+"')";
+                        } else {
+                            req = "INSERT INTO pointage(id,mat,nom, departement,date) VALUES(" + i + "," + li[0] + ",'" + li[1] + "','" + li[2] + "','" + li[3] + "')";
                         }
                         System.err.println(req);
                         s.executeUpdate(req);
-                        
+
                     }
                 }
                 i++;
@@ -91,11 +107,42 @@ public class AdminDAO {
         } finally {
             br.close();
         }
-}
-  public static void exportCSV(Connection cnx) throws IOException{
-        
+    }
+
+    public static void parcourir(Connection cnx) throws IOException {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File("."));
+
+        chooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+            public boolean accept(File f) {
+                return f.getName().toLowerCase().endsWith(".csv")
+                        || f.isDirectory();
+            }
+
+            public String getDescription() {
+                return "txt File";
+            }
+        });
+
+        int r = chooser.showOpenDialog(new JFrame());
+        if (r == JFileChooser.APPROVE_OPTION) {
+            String name = chooser.getSelectedFile().getAbsolutePath();
+            System.out.println(name);
+            try {
+                AdminDAO.remplirBD(name, cnx);
+
+            } catch (IOException ex) {
+                Logger.getLogger(Historique.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Historique.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    public static void exportCSV(Connection cnx) throws IOException {
+
         FileWriter writer = new FileWriter("C:\\Users\\delll\\Desktop\\historique.csv");
-     
+
         writer.append("mat");
         writer.append(';');
         writer.append("nom");
@@ -115,9 +162,9 @@ public class AdminDAO {
             String req = "SELECT e.matricule , e.nom, e.departemet, p.date, p.heure_deb, p.heure_fin, e.taux_pre  FROM employe e , pointage p WHERE e.matricule = p.matricule";
             Statement s = cnx.createStatement();
             ResultSet rs = s.executeQuery(req);
-            
-            while (rs.next()){
-                writer.append(rs.getInt(1)+"");
+
+            while (rs.next()) {
+                writer.append(rs.getInt(1) + "");
                 writer.append(';');
                 writer.append(rs.getString(2));
                 writer.append(';');
@@ -129,25 +176,24 @@ public class AdminDAO {
                 writer.append(';');
                 writer.append(rs.getString(6));
                 writer.append(';');
-                writer.append(rs.getInt(7)+"");
+                writer.append(rs.getInt(7) + "");
                 writer.append(';');
                 writer.append('\n');
             }
-            
-             writer.flush();
-	    writer.close();
-                    JOptionPane.showMessageDialog(null, "DONE");
+
+            writer.flush();
+            writer.close();
+            JOptionPane.showMessageDialog(null, "DONE");
         } catch (SQLException ex) {
             Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
-    
-    public static void exportCSVsalaireJour(Connection cnx) throws IOException{
-        
+
+    public static void exportCSVsalaireJour(Connection cnx) throws IOException {
+
         FileWriter writer = new FileWriter("C:\\Users\\delll\\Desktop\\salaireJour.csv");
-        
+
         writer.append("matricule");
         writer.append(';');
         writer.append("nom");
@@ -163,63 +209,27 @@ public class AdminDAO {
             String req = "SELECT e.matricule, e.nom, date, salaire_jour,  taux_pre FROM employe e , pointage p WHERE p.matricule = e.matricule";
             Statement s = cnx.createStatement();
             ResultSet rs = s.executeQuery(req);
-            
-            while (rs.next()){
-                writer.append(rs.getInt(1)+"");
+
+            while (rs.next()) {
+                writer.append(rs.getInt(1) + "");
                 writer.append(';');
-                writer.append(rs.getString(2)+"");
+                writer.append(rs.getString(2) + "");
                 writer.append(';');
                 writer.append(rs.getString(3));
                 writer.append(';');
-                writer.append(rs.getInt(4)+"");
+                writer.append(rs.getInt(4) + "");
                 writer.append(';');
-                writer.append(rs.getInt(5)+"");
+                writer.append(rs.getInt(5) + "");
                 writer.append(';');
                 writer.append('\n');
             }
-            
-             writer.flush();
-	    writer.close();
-            
+
+            writer.flush();
+            writer.close();
+
             JOptionPane.showMessageDialog(null, "DONE");
         } catch (SQLException ex) {
             Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }
-    
-    public static void  parcourir (Connection cnx){
-    JFileChooser chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new File("."));
-        
-        chooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
-            public boolean accept(File f) {
-                return f.getName().toLowerCase().endsWith(".csv")
-                        || f.isDirectory();
-            }
-             
-            public String getDescription() {
-                return "txt File";
-            }
-        });
-        
-        int r = chooser.showOpenDialog(new JFrame());
-        if (r == JFileChooser.APPROVE_OPTION) {
-            String name = chooser.getSelectedFile().getAbsolutePath();
-            System.out.println(name);
-            try {
-              AdminDAO.remplirBD(name, cnx);
-                
-            } catch (IOException ex) {
-                Logger.getLogger(Historique.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Historique.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
     }
 }
-    
-   
-  
-
-

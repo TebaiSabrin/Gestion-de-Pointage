@@ -33,6 +33,7 @@ public class Historique extends javax.swing.JFrame {
     public Historique() {
         e.connexion();
         
+        
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File("."));
         
