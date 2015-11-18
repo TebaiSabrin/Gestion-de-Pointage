@@ -22,6 +22,7 @@ public class SalaireCalcule extends javax.swing.JFrame {
      */
      AdminDAO e= new AdminDAO();
         private Connection cnx;
+        private int mat;
 
     public SalaireCalcule() {
         e.connexion();
@@ -231,25 +232,21 @@ public class SalaireCalcule extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxListEmployeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxListEmployeActionPerformed
-
-        if (jComboBoxListEmploye.getSelectedIndex()!=-1){
+boolean result = e.salaire(salaireJour.getText(),jour.getText(),nbrHeurePresence.getText(),int mat);
+            
+          
+            if(result){
+                // TODO add your handling code here:
+                 if (jComboBoxListEmploye.getSelectedIndex()!=-1){
             String[] data = jComboBoxListEmploye.getSelectedItem().toString().split(";");
             int mat = Integer.parseInt(data[1]);
-            try {
-                // TODO add your handling code here:
-                String req = "SELECT salaire_jour, date, taux_pre FROM employe e , pointage p WHERE p.matricule = e.matricule AND p.matricule = "+mat;
-                Statement s = cnx.createStatement();
-                ResultSet rs = s.executeQuery(req);
-
-                while (rs.next()){
+            while (rs.next()){
                     salaireJour.setText(rs.getString(1)+" dt");
                     jour.setText(rs.getString(2));
-                    nbrHeurePresence.setText(rs.getInt(3)+"");
+                    nbrHeurePresence.setText(rs.getString(3));
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(Historique.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+                 }   
+        }  
     }//GEN-LAST:event_jComboBoxListEmployeActionPerformed
 
     private void salaireJourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaireJourActionPerformed
