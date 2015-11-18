@@ -240,11 +240,7 @@ boolean result = e.salaire(salaireJour.getText(),jour.getText(),nbrHeurePresence
                  if (jComboBoxListEmploye.getSelectedIndex()!=-1){
             String[] data = jComboBoxListEmploye.getSelectedItem().toString().split(";");
             int mat = Integer.parseInt(data[1]);
-            while (rs.next()){
-                    salaireJour.setText(rs.getString(1)+" dt");
-                    jour.setText(rs.getString(2));
-                    nbrHeurePresence.setText(rs.getString(3));
-                }
+           
                  }   
         }  
     }//GEN-LAST:event_jComboBoxListEmployeActionPerformed
