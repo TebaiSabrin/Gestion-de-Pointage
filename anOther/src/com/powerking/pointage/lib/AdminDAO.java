@@ -15,8 +15,10 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -33,17 +35,51 @@ public class AdminDAO {
     public Connection cnx;
     public int matricule;
 
-    private String x1, x2;
+    //private String x1, x2;
 
     public void connexion() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_pointage", "root", "");
+            
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println(e.getMessage());
         }
 
     }
+    
+    public boolean tableHistorique() {
+        Statement s = null;
+        String req = "SELECT matricule,nom,deparetment,taux_pre,date,heure_deb,heure_fin  FROM employe e , pointage p where e.matricule =p.matricule" ;
+        try {
+            s = cnx.createStatement();
+            ResultSet rs = s.executeQuery(req);
+            ResultSetMetaData rsmt = rs.getMetaData();
+            int c = rsmt.getColumnCount();
+            Vector column = new Vector(c);
+            for(int i =1;i<= c ;i++)
+            {
+                column.add(rsmt.getColumnName(i));
+            }
+            Vector data = new Vector();
+            Vector row = new Vector();
+            while(rs.next())
+            { row = new Vector(c);
+            for(int i=0;i<=c;i++)
+            { row.add(rs.getString(i));
+            }
+            data.add(row);
+          //  JFrame frame = new JFrame();
+            
+        }
+            return true;
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+    
 
     public boolean authentification(String login, String password) {
         Statement s = null;
@@ -61,9 +97,32 @@ public class AdminDAO {
             return false;
         }
         }
- 
- 
-  
+    
+  public boolean calculsalaireJour(String salaire,String jour,String nbrpres,int mat) { 
+
+                // TODO add your handling code here:
+ String req = "SELECT salaire_jour, date, taux_pre FROM employe e , pointage p WHERE p.matricule = e.matricule AND p.matricule = "+mat;
+                
+                
+              try {
+           Statement s = cnx.createStatement();
+            ResultSet rs = s.executeQuery(req);
+                
+                   while (rs.next()){
+                    salaire=(rs.getString(1)+" dt");
+                    jour=(rs.getString(2));
+                    nbrpres =(rs.getString(3));
+                }
+                return true;
+           
+              }
+         catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+  }
+     
+
 
     public static void remplirBD(String chemin, Connection cnx) throws FileNotFoundException, IOException, SQLException {
         Statement s = null;
@@ -109,7 +168,7 @@ public class AdminDAO {
         }
     }
 
-    public static void parcourir(Connection cnx) throws IOException {
+    public void parcourir() throws IOException {
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File("."));
 
