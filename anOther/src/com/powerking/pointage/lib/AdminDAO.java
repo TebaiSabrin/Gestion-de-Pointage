@@ -24,7 +24,9 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -48,7 +50,7 @@ public class AdminDAO {
 
     }
     
-    public boolean tableHistorique() {
+    public void tableHistorique() {
         Statement s = null;
         String req = "SELECT matricule,nom,deparetment,taux_pre,date,heure_deb,heure_fin  FROM employe e , pointage p where e.matricule =p.matricule" ;
         try {
@@ -72,14 +74,53 @@ public class AdminDAO {
           //  JFrame frame = new JFrame();
             
         }
-            return true;
+            
         }
         catch (SQLException ex) {
             ex.printStackTrace();
-            return false;
+           
         }
     }
-    
+    public DefaultTableModel historique(){
+        Statement s = null;
+        ResultSet rs = null;
+        DefaultTableModel model = new DefaultTableModel();
+        try {
+        String req = "SELECT  nom, departemet, date, heure_deb, heure_fin  FROM employe e , pointage p WHERE e.matricule = p.matricule";
+            s = cnx.createStatement();
+            rs = s.executeQuery(req);
+            
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int col = rsmd.getColumnCount();
+            Object[] obj = new Object[col];
+            for (int i=0 ; i < col ; i++)
+            {
+                obj[i]=rsmd.getColumnLabel(i+1);
+            }
+            model.setColumnIdentifiers(obj);
+            while (rs.next()) {
+                Object[] data = new Object[model.getColumnCount()];
+                for(int i=0 ; i < model.getColumnCount() ; i++)
+                {
+                    data[i]= rs.getObject(i+1);
+                }
+                model.addRow(data);
+            }
+            }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+            s.close();
+            rs.close();
+            cnx.close();
+            }
+            catch(Exception ex){
+            ex.printStackTrace();}
+        }
+        return model;
+}
 
     public boolean authentification(String login, String password) {
         Statement s = null;
@@ -101,7 +142,7 @@ public class AdminDAO {
   public boolean calculsalaireJour(String salaire,String jour,String nbrpres,int mat) { 
 
                 // TODO add your handling code here:
- String req = "SELECT salaire_jour, date, taux_pre FROM employe e , pointage p WHERE p.matricule = e.matricule AND p.matricule = "+mat;
+ String req = "SELECT salaire_Jour, date, taux_pre FROM employe e , pointage p WHERE p.matricule = e.matricule AND p.matricule = "+mat;
                 
                 
               try {
