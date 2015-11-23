@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -27,59 +28,19 @@ public class Historique extends javax.swing.JFrame {
      * Creates new form Form1
      */
     
-    private Connection cnx;
-    private String x1,x2;
+    
     AdminDAO e= new AdminDAO();
-    public Historique() {
+    DefaultTableModel model;
+    public Historique() throws IOException {
         e.connexion();
-        
-        
-        JFileChooser chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new File("."));
-        
-        chooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
-            public boolean accept(File f) {
-                return f.getName().toLowerCase().endsWith(".csv")
-                        || f.isDirectory();
-            }
-             
-            public String getDescription() {
-                return "txt File";
-            }
-        });
-        
-        int r = chooser.showOpenDialog(new JFrame());
-        if (r == JFileChooser.APPROVE_OPTION) {
-            String name = chooser.getSelectedFile().getAbsolutePath();
-            System.out.println(name);
-            try {
-                AdminDAO.remplirBD(name,cnx);
-            } catch (IOException ex) {
-                Logger.getLogger(Historique.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Historique.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        
+        e.parcourir();
+        model = e.historique();
         initComponents();
         
-        jTableHistoEmp.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-
-            public void valueChanged(ListSelectionEvent ls) {
-                try{
-                    if (ls != null){
-                        x1 =  jTableHistoEmp.getValueAt(jTableHistoEmp.getSelectedRow(), 4).toString();
-                        x2 =  jTableHistoEmp.getValueAt(jTableHistoEmp.getSelectedRow(), 5).toString();
-                    }
-                }catch(Exception ex){
-                    x1 = "0";
-                    x2 = "0";
-                }
-            }
-        });
-    }
-    
+        
+       
+                
+               }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,50 +49,15 @@ public class Historique extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("extra?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        pointageQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT p FROM Pointage p");
-        pointageList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : pointageQuery.getResultList();
-        pointageQuery1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT p FROM Pointage p");
-        pointageList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : pointageQuery1.getResultList();
-        pointageQuery2 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT p FROM Pointage p");
-        pointageList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : pointageQuery2.getResultList();
-        pointageQuery3 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT p FROM Pointage p");
-        pointageList3 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : pointageQuery3.getResultList();
-        pointageQuery4 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT p FROM Pointage p");
-        pointageList4 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : pointageQuery4.getResultList();
-        pointageQuery5 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT p FROM Pointage p");
-        pointageList5 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : pointageQuery5.getResultList();
-        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("gestion_pointage?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        employeQuery = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT e FROM Employe e");
-        employeList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : employeQuery.getResultList();
-        employeQuery1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Employe e");
-        employeList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : employeQuery1.getResultList();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableHistoEmp = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jButtonExporteHisto = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButton3RetourHisto = new javax.swing.JButton();
         jButtonImprimerHisto = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTableHistoPoin = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1Historique = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, employeList1, jTableHistoEmp);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${matricule}"));
-        columnBinding.setColumnName("Matricule");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nom}"));
-        columnBinding.setColumnName("Nom");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${departemet}"));
-        columnBinding.setColumnName("Departemet");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();
-        jScrollPane1.setViewportView(jTableHistoEmp);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -143,10 +69,10 @@ public class Historique extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Retour");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton3RetourHisto.setText("Retour");
+        jButton3RetourHisto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton3RetourHistoActionPerformed(evt);
             }
         });
 
@@ -164,36 +90,24 @@ public class Historique extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(jButtonExporteHisto)
-                .addGap(77, 77, 77)
+                .addGap(54, 54, 54)
                 .addComponent(jButtonImprimerHisto, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton3RetourHisto, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonExporteHisto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonImprimerHisto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton3RetourHisto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, pointageList5, jTableHistoPoin);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${date}"));
-        columnBinding.setColumnName("Date");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${heureDeb}"));
-        columnBinding.setColumnName("Heure Deb");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${heureFin}"));
-        columnBinding.setColumnName("Heure Fin");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();
-
-        jScrollPane3.setViewportView(jTableHistoPoin);
+        jTable1Historique.setModel(model);
+        jScrollPane2.setViewportView(jTable1Historique);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -202,26 +116,22 @@ public class Historique extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 10, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 32, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(27, 27, 27)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -229,17 +139,18 @@ public class Historique extends javax.swing.JFrame {
     private void jButtonExporteHistoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExporteHistoActionPerformed
         try {
             // TODO add your handling code here:
-            AdminDAO.exportCSV(cnx);
+            e.connexion();
+            e.exportCSV();
         } catch (IOException ex) {
             Logger.getLogger(Historique.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonExporteHistoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3RetourHistoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3RetourHistoActionPerformed
         // TODO add your handling code here:
         new Menu().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton3RetourHistoActionPerformed
 
     private void jButtonImprimerHistoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimerHistoActionPerformed
         // TODO add your handling code here:
@@ -247,7 +158,7 @@ public class Historique extends javax.swing.JFrame {
         MessageFormat footer = new MessageFormat("Page{0,number,integer}");
         
         try {
-            jTableHistoEmp.print(JTable.PrintMode.NORMAL,header,footer);
+            jTable1Historique.print(JTable.PrintMode.NORMAL,header,footer);
         }catch(PrinterException ex){
             
         }
@@ -284,38 +195,21 @@ public class Historique extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Historique().setVisible(true);
+                try {
+                    new Historique().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Historique.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.util.List<com.powerking.pointage.lib.ClassEmploye> employeList;
-    private java.util.List<com.powerking.pointage.lib.ClassEmploye> employeList1;
-    private javax.persistence.Query employeQuery;
-    private javax.persistence.Query employeQuery1;
-    private javax.persistence.EntityManager entityManager;
-    private javax.persistence.EntityManager entityManager0;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton3RetourHisto;
     private javax.swing.JButton jButtonExporteHisto;
     private javax.swing.JButton jButtonImprimerHisto;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTableHistoEmp;
-    private javax.swing.JTable jTableHistoPoin;
-    private java.util.List<com.powerking.pointage.lib.ClassPointage> pointageList;
-    private java.util.List<com.powerking.pointage.lib.ClassPointage> pointageList1;
-    private java.util.List<com.powerking.pointage.lib.ClassPointage> pointageList2;
-    private java.util.List<com.powerking.pointage.lib.ClassPointage> pointageList3;
-    private java.util.List<com.powerking.pointage.lib.ClassPointage> pointageList4;
-    private java.util.List<com.powerking.pointage.lib.ClassPointage> pointageList5;
-    private javax.persistence.Query pointageQuery;
-    private javax.persistence.Query pointageQuery1;
-    private javax.persistence.Query pointageQuery2;
-    private javax.persistence.Query pointageQuery3;
-    private javax.persistence.Query pointageQuery4;
-    private javax.persistence.Query pointageQuery5;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1Historique;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package com.powerking.pointage.ui;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author delll
@@ -135,8 +140,12 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelHistoriqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHistoriqueMouseClicked
-        // TODO add your handling code here:
-        new Historique().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new Historique().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
     }//GEN-LAST:event_jLabelHistoriqueMouseClicked
 

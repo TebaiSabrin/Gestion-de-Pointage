@@ -23,7 +23,7 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "employe", catalog = "gestion_pointage", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Employe.findAll", query = "SELECT e FROM Employe e"),
+    @NamedQuery(name = "Employe.findAll", query = "SELECT e FROM employe e"),
     @NamedQuery(name = "Employe.findByMatricule", query = "SELECT e FROM Employe e WHERE e.matricule = :matricule"),
     @NamedQuery(name = "Employe.findByNom", query = "SELECT e FROM Employe e WHERE e.nom = :nom"),
     @NamedQuery(name = "Employe.findByDepartemet", query = "SELECT e FROM Employe e WHERE e.departemet = :departemet"),

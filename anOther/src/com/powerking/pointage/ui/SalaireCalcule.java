@@ -26,6 +26,7 @@ public class SalaireCalcule extends javax.swing.JFrame {
 
     public SalaireCalcule() {
         e.connexion();
+        
         initComponents();
     }
 
@@ -45,16 +46,16 @@ public class SalaireCalcule extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jComboBoxListEmploye = new javax.swing.JComboBox();
         salaireJour = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel1choisirEmploye = new javax.swing.JLabel();
         jour = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel2salaireJour = new javax.swing.JLabel();
+        jLabel3Egal = new javax.swing.JLabel();
+        jLabel4prixheure = new javax.swing.JLabel();
         jLabelPrixHeure = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel6fois = new javax.swing.JLabel();
+        jLabel7nbrHeurePres = new javax.swing.JLabel();
         nbrHeurePresence = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton1retourSal = new javax.swing.JButton();
         jButtonExporterSalaire = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,31 +83,31 @@ public class SalaireCalcule extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel1.setText("Choisir Un(e)  Employé(e)       :");
+        jLabel1choisirEmploye.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1choisirEmploye.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel1choisirEmploye.setText("Choisir Un(e)  Employé(e)       :");
 
         jour.setForeground(new java.awt.Color(0, 102, 0));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel2.setText("Salaire du Jour ");
+        jLabel2salaireJour.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2salaireJour.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel2salaireJour.setText("Salaire du Jour ");
 
-        jLabel3.setText(" =");
+        jLabel3Egal.setText(" =");
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel4.setText("Prix d'une  heure                   : ");
+        jLabel4prixheure.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4prixheure.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel4prixheure.setText("Prix d'une  heure                   : ");
 
         jLabelPrixHeure.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabelPrixHeure.setForeground(new java.awt.Color(102, 51, 255));
         jLabelPrixHeure.setText("3 dt");
 
-        jLabel6.setText("*");
+        jLabel6fois.setText("*");
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 102, 0));
-        jLabel7.setText("Nombre d'heures de présence : ");
+        jLabel7nbrHeurePres.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7nbrHeurePres.setForeground(new java.awt.Color(153, 102, 0));
+        jLabel7nbrHeurePres.setText("Nombre d'heures de présence : ");
 
         nbrHeurePresence.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         nbrHeurePresence.setForeground(new java.awt.Color(255, 0, 153));
@@ -119,19 +120,19 @@ public class SalaireCalcule extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabel2salaireJour)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jour, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18))
+                        .addComponent(jLabel3Egal, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4prixheure, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel1choisirEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(122, 122, 122)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -139,14 +140,14 @@ public class SalaireCalcule extends javax.swing.JFrame {
                         .addComponent(salaireJour))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel6fois, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jLabelPrixHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7)
+                .addComponent(jLabel7nbrHeurePres)
                 .addGap(171, 171, 171)
                 .addComponent(nbrHeurePresence, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -156,37 +157,37 @@ public class SalaireCalcule extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabel1choisirEmploye)
                     .addComponent(jComboBoxListEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPrixHeure)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4prixheure))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6fois, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
+                    .addComponent(jLabel7nbrHeurePres)
                     .addComponent(nbrHeurePresence, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(salaireJour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addComponent(jLabel2))
+                            .addComponent(jLabel3Egal))
+                        .addComponent(jLabel2salaireJour))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jour, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setText("Retour");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1retourSal.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1retourSal.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton1retourSal.setText("Retour");
+        jButton1retourSal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1retourSalActionPerformed(evt);
             }
         });
 
@@ -209,7 +210,7 @@ public class SalaireCalcule extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1retourSal, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonExporterSalaire, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
@@ -222,7 +223,7 @@ public class SalaireCalcule extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonExporterSalaire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1retourSal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -232,16 +233,24 @@ public class SalaireCalcule extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxListEmployeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxListEmployeActionPerformed
-boolean result = e.salaire(salaireJour.getText(),jour.getText(),nbrHeurePresence.getText(),int mat);
-            
-          
-            if(result){
-                // TODO add your handling code here:
-                 if (jComboBoxListEmploye.getSelectedIndex()!=-1){
+
+    if (jComboBoxListEmploye.getSelectedIndex()!=1){
             String[] data = jComboBoxListEmploye.getSelectedItem().toString().split(";");
             int mat = Integer.parseInt(data[1]);
-           
-                 }   
+            try {
+                // TODO add your handling code here:
+                String req = "SELECT salaire_jour, date, taux_pre FROM employe e , pointage p WHERE p.matricule = e.matricule AND p.matricule = "+mat;
+                Statement s = cnx.createStatement();
+                ResultSet rs = s.executeQuery(req);
+
+                while (rs.next()){
+                    jLabelPrixHeure.setText(rs.getString(1)+" dt");
+                    jour.setText(rs.getString(2));
+                    nbrHeurePresence.setText(rs.getInt(3)+"");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(SalaireCalcule.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }  
     }//GEN-LAST:event_jComboBoxListEmployeActionPerformed
 
@@ -249,11 +258,11 @@ boolean result = e.salaire(salaireJour.getText(),jour.getText(),nbrHeurePresence
         // TODO add your handling code here:
     }//GEN-LAST:event_salaireJourActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1retourSalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1retourSalActionPerformed
         // TODO add your handling code here:
         new Menu().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton1retourSalActionPerformed
 
     private void jButtonExporterSalaireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExporterSalaireActionPerformed
         try {
@@ -303,15 +312,15 @@ boolean result = e.salaire(salaireJour.getText(),jour.getText(),nbrHeurePresence
     private java.util.List<com.powerking.pointage.lib.ClassEmploye> employeList;
     private javax.persistence.Query employeQuery;
     private javax.persistence.EntityManager entityManager;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton1retourSal;
     private javax.swing.JButton jButtonExporterSalaire;
     private javax.swing.JComboBox jComboBoxListEmploye;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel1choisirEmploye;
+    private javax.swing.JLabel jLabel2salaireJour;
+    private javax.swing.JLabel jLabel3Egal;
+    private javax.swing.JLabel jLabel4prixheure;
+    private javax.swing.JLabel jLabel6fois;
+    private javax.swing.JLabel jLabel7nbrHeurePres;
     private javax.swing.JLabel jLabelPrixHeure;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jour;

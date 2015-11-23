@@ -239,7 +239,7 @@ public class AdminDAO {
         }
     }
 
-    public static void exportCSV(Connection cnx) throws IOException {
+    public void exportCSV() throws IOException {
 
         FileWriter writer = new FileWriter("C:\\Users\\delll\\Desktop\\historique.csv");
 
@@ -284,6 +284,7 @@ public class AdminDAO {
             writer.flush();
             writer.close();
             JOptionPane.showMessageDialog(null, "DONE");
+            cnx.close();
         } catch (SQLException ex) {
             Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
