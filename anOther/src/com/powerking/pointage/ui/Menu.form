@@ -27,42 +27,67 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelTitreMenu" alignment="0" pref="530" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelImportation" alignment="0" min="-2" pref="426" max="-2" attributes="0"/>
-                          <Component id="jLabelHistorique" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
-                          <Component id="jLabelCalculSalaire" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
-                          <Component id="jLabelStatistique" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
-                          <Component id="jLabelContact" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
-                          <Component id="jLabelQuiiter" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabelImportation" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabelCalculSalaire" alignment="0" pref="467" max="32767" attributes="0"/>
+                          <Component id="jLabelHistorique" alignment="0" min="-2" pref="406" max="-2" attributes="0"/>
+                          <Component id="jLabelStatistique" alignment="1" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelContact" alignment="1" min="-2" pref="428" max="-2" attributes="0"/>
+                          <Component id="jLabelCalculPrime" alignment="0" min="-2" pref="431" max="-2" attributes="0"/>
+                          <Component id="jLabelRechercherEmployé" min="-2" pref="395" max="-2" attributes="0"/>
+                          <Component id="jLabelTableauBord" min="-2" pref="413" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="jLabelTitreMenu" pref="1226" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jLabelQuiiter" min="-2" pref="413" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="456" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabelTitreMenu" min="-2" pref="78" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLabelImportation" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLabelHistorique" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelCalculSalaire" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jLabelImportation" min="-2" pref="128" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="jLabelHistorique" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabelTableauBord" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Component id="jLabelRechercherEmployé" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelStatistique" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelCalculSalaire" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelCalculPrime" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelContact" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelStatistique" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelContact" alignment="3" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelQuiiter" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabelQuiiter" min="-2" pref="98" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,7 +105,7 @@
           <Color blue="cc" green="0" red="33" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/powerking/pointage/images/iconHistorique.png"/>
+          <Image iconType="3" name="/com/powerking/pointage/images/icon_histo.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="     Consulter  Historique"/>
       </Properties>
@@ -100,7 +125,7 @@
           <Color blue="0" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/powerking/pointage/images/iconstatistique.png"/>
+          <Image iconType="3" name="/com/powerking/pointage/images/icon_stat.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="    Consulter  Statistique"/>
       </Properties>
@@ -120,7 +145,7 @@
           <Color blue="cc" green="33" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/powerking/pointage/images/iconContact.png"/>
+          <Image iconType="3" name="/com/powerking/pointage/images/icon_mail.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="        Contactez Nous"/>
       </Properties>
@@ -137,7 +162,7 @@
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/powerking/pointage/images/iconQuitter.png"/>
+          <Image iconType="3" name="/com/powerking/pointage/images/icon_quitter.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="               Quitter"/>
       </Properties>
@@ -145,7 +170,7 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelQuiiterMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelCalculSalaire">
+    <Component class="javax.swing.JLabel" name="jLabelCalculPrime">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="1"/>
@@ -154,12 +179,12 @@
           <Color blue="66" green="66" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/powerking/pointage/images/icondolar.png"/>
+          <Image iconType="3" name="/com/powerking/pointage/images/icon_prime.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="   Calculer Salaire journalier"/>
+        <Property name="text" type="java.lang.String" value="   Calculer Prime"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelCalculSalaireMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelCalculPrimeMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTitreMenu">
@@ -173,7 +198,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="cc" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="  Gestion de Pointage"/>
+        <Property name="text" type="java.lang.String" value="  Application Gestion de Pointage soci&#xe9;t&#xe9; POWERKING"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelImportation">
@@ -190,10 +215,61 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/com/powerking/pointage/images/icon_importer.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="      Importer Fichier "/>
+        <Property name="text" type="java.lang.String" value="             Importer Fichier "/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelImportationMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelTableauBord">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="24" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/powerking/pointage/images/tableau_bord.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="  Tableau de bord"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelTableauBordMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelRechercherEmploy&#xe9;">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="24" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/powerking/pointage/images/icon_search.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="   Rechercher Employ&#xe9;(e)"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelRechercherEmploy&#xe9;MouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelCalculSalaire">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="24" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/powerking/pointage/images/icon_salaire.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="   Calculer Salaire journalier"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelCalculSalaireMouseClicked"/>
       </Events>
     </Component>
   </SubComponents>

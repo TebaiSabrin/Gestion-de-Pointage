@@ -35,9 +35,12 @@ public class Menu extends javax.swing.JFrame {
         jLabelStatistique = new javax.swing.JLabel();
         jLabelContact = new javax.swing.JLabel();
         jLabelQuiiter = new javax.swing.JLabel();
-        jLabelCalculSalaire = new javax.swing.JLabel();
+        jLabelCalculPrime = new javax.swing.JLabel();
         jLabelTitreMenu = new javax.swing.JLabel();
         jLabelImportation = new javax.swing.JLabel();
+        jLabelTableauBord = new javax.swing.JLabel();
+        jLabelRechercherEmployé = new javax.swing.JLabel();
+        jLabelCalculSalaire = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 204));
@@ -45,7 +48,7 @@ public class Menu extends javax.swing.JFrame {
         jLabelHistorique.setBackground(new java.awt.Color(0, 0, 255));
         jLabelHistorique.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelHistorique.setForeground(new java.awt.Color(51, 0, 204));
-        jLabelHistorique.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/iconHistorique.png"))); // NOI18N
+        jLabelHistorique.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/icon_histo.png"))); // NOI18N
         jLabelHistorique.setText("     Consulter  Historique");
         jLabelHistorique.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -56,7 +59,7 @@ public class Menu extends javax.swing.JFrame {
         jLabelStatistique.setBackground(new java.awt.Color(0, 204, 0));
         jLabelStatistique.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelStatistique.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelStatistique.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/iconstatistique.png"))); // NOI18N
+        jLabelStatistique.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/icon_stat.png"))); // NOI18N
         jLabelStatistique.setText("    Consulter  Statistique");
         jLabelStatistique.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -67,7 +70,7 @@ public class Menu extends javax.swing.JFrame {
         jLabelContact.setBackground(new java.awt.Color(255, 102, 0));
         jLabelContact.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelContact.setForeground(new java.awt.Color(255, 51, 204));
-        jLabelContact.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/iconContact.png"))); // NOI18N
+        jLabelContact.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/icon_mail.png"))); // NOI18N
         jLabelContact.setText("        Contactez Nous");
         jLabelContact.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -77,7 +80,7 @@ public class Menu extends javax.swing.JFrame {
 
         jLabelQuiiter.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelQuiiter.setForeground(new java.awt.Color(255, 0, 0));
-        jLabelQuiiter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/iconQuitter.png"))); // NOI18N
+        jLabelQuiiter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/icon_quitter.png"))); // NOI18N
         jLabelQuiiter.setText("               Quitter");
         jLabelQuiiter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -85,29 +88,59 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jLabelCalculSalaire.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabelCalculSalaire.setForeground(new java.awt.Color(255, 102, 102));
-        jLabelCalculSalaire.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/icondolar.png"))); // NOI18N
-        jLabelCalculSalaire.setText("   Calculer Salaire journalier");
-        jLabelCalculSalaire.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelCalculPrime.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabelCalculPrime.setForeground(new java.awt.Color(255, 102, 102));
+        jLabelCalculPrime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/icon_prime.png"))); // NOI18N
+        jLabelCalculPrime.setText("   Calculer Prime");
+        jLabelCalculPrime.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelCalculSalaireMouseClicked(evt);
+                jLabelCalculPrimeMouseClicked(evt);
             }
         });
 
         jLabelTitreMenu.setBackground(new java.awt.Color(255, 204, 102));
         jLabelTitreMenu.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabelTitreMenu.setForeground(new java.awt.Color(204, 0, 0));
-        jLabelTitreMenu.setText("  Gestion de Pointage");
+        jLabelTitreMenu.setText("  Application Gestion de Pointage société POWERKING");
 
         jLabelImportation.setBackground(new java.awt.Color(0, 0, 255));
         jLabelImportation.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelImportation.setForeground(new java.awt.Color(255, 51, 0));
         jLabelImportation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/icon_importer.png"))); // NOI18N
-        jLabelImportation.setText("      Importer Fichier ");
+        jLabelImportation.setText("             Importer Fichier ");
         jLabelImportation.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelImportationMouseClicked(evt);
+            }
+        });
+
+        jLabelTableauBord.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabelTableauBord.setForeground(new java.awt.Color(255, 102, 102));
+        jLabelTableauBord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/tableau_bord.png"))); // NOI18N
+        jLabelTableauBord.setText("  Tableau de bord");
+        jLabelTableauBord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelTableauBordMouseClicked(evt);
+            }
+        });
+
+        jLabelRechercherEmployé.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabelRechercherEmployé.setForeground(new java.awt.Color(255, 102, 102));
+        jLabelRechercherEmployé.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/icon_search.png"))); // NOI18N
+        jLabelRechercherEmployé.setText("   Rechercher Employé(e)");
+        jLabelRechercherEmployé.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelRechercherEmployéMouseClicked(evt);
+            }
+        });
+
+        jLabelCalculSalaire.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabelCalculSalaire.setForeground(new java.awt.Color(255, 102, 102));
+        jLabelCalculSalaire.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/icon_salaire.png"))); // NOI18N
+        jLabelCalculSalaire.setText("   Calculer Salaire journalier");
+        jLabelCalculSalaire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCalculSalaireMouseClicked(evt);
             }
         });
 
@@ -116,37 +149,54 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelTitreMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelImportation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelCalculSalaire, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                            .addComponent(jLabelHistorique, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelStatistique, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelImportation, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelHistorique, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCalculSalaire, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelStatistique, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelContact, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelQuiiter, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabelContact, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelCalculPrime, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelRechercherEmployé, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelTableauBord, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabelTitreMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 1226, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelQuiiter, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(456, 456, 456))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelTitreMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelImportation, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelHistorique)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCalculSalaire)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelImportation, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabelHistorique))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelTableauBord)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabelRechercherEmployé)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelStatistique)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelCalculSalaire)
+                    .addComponent(jLabelCalculPrime))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelContact)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelStatistique)
+                    .addComponent(jLabelContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelQuiiter))
+                .addComponent(jLabelQuiiter, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -179,11 +229,11 @@ public class Menu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabelQuiiterMouseClicked
 
-    private void jLabelCalculSalaireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCalculSalaireMouseClicked
+    private void jLabelCalculPrimeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCalculPrimeMouseClicked
         // TODO add your handling code here:
-        new CalculSalaireJour().setVisible(true);
+        new CalculPrime().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabelCalculSalaireMouseClicked
+    }//GEN-LAST:event_jLabelCalculPrimeMouseClicked
 
     private void jLabelImportationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImportationMouseClicked
         try {
@@ -194,6 +244,24 @@ public class Menu extends javax.swing.JFrame {
         }
         this.dispose();
     }//GEN-LAST:event_jLabelImportationMouseClicked
+
+    private void jLabelTableauBordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTableauBordMouseClicked
+        // TODO add your handling code here:
+        new TableauDeBord().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabelTableauBordMouseClicked
+
+    private void jLabelRechercherEmployéMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRechercherEmployéMouseClicked
+        // TODO add your handling code here:
+        new RechercherEmploye().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabelRechercherEmployéMouseClicked
+
+    private void jLabelCalculSalaireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCalculSalaireMouseClicked
+        // TODO add your handling code here:
+        new CalculSalaireJour().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabelCalculSalaireMouseClicked
 
     /**
      * @param args the command line arguments
@@ -232,12 +300,15 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelCalculPrime;
     private javax.swing.JLabel jLabelCalculSalaire;
     private javax.swing.JLabel jLabelContact;
     private javax.swing.JLabel jLabelHistorique;
     private javax.swing.JLabel jLabelImportation;
     private javax.swing.JLabel jLabelQuiiter;
+    private javax.swing.JLabel jLabelRechercherEmployé;
     private javax.swing.JLabel jLabelStatistique;
+    private javax.swing.JLabel jLabelTableauBord;
     private javax.swing.JLabel jLabelTitreMenu;
     // End of variables declaration//GEN-END:variables
 }
