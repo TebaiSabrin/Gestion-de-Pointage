@@ -27,65 +27,95 @@ public class Contact extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabelTitreContact = new javax.swing.JLabel();
-        jButtoncontact = new javax.swing.JButton();
+        jLabel1logoPowerKing = new javax.swing.JLabel();
+        jLabel2Destinataire = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1Envoyer = new javax.swing.JButton();
+        jButton2RetourContact = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1Destinataire = new javax.swing.JTextPane();
+        textArea1Message = new java.awt.TextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 0, 153));
-        setForeground(new java.awt.Color(0, 0, 153));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/lib/Sans titre.png"))); // NOI18N
+        jLabel1logoPowerKing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/logoPowerKing.png"))); // NOI18N
 
-        jLabelTitreContact.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jLabelTitreContact.setForeground(new java.awt.Color(0, 153, 51));
-        jLabelTitreContact.setText("Vous Pouvez Nous Contactez Sur :");
+        jLabel2Destinataire.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2Destinataire.setText("Destinataire :");
 
-        jButtoncontact.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButtoncontact.setText("Retour");
-        jButtoncontact.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Message       :");
+
+        jButton1Envoyer.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1Envoyer.setText("Envoyer");
+
+        jButton2RetourContact.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2RetourContact.setText("Retour");
+        jButton2RetourContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtoncontactActionPerformed(evt);
+                jButton2RetourContactActionPerformed(evt);
             }
         });
+
+        jScrollPane1.setViewportView(jTextPane1Destinataire);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2Destinataire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addComponent(textArea1Message, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(106, Short.MAX_VALUE)
+                        .addComponent(jLabel1logoPowerKing, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(94, 94, 94))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabelTitreContact, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jButtoncontact, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(155, 155, 155)
+                .addComponent(jButton1Envoyer, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(125, 125, 125)
+                .addComponent(jButton2RetourContact, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(28, 28, 28)
-                .addComponent(jLabelTitreContact, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
-                .addComponent(jButtoncontact, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addComponent(jLabel1logoPowerKing)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2Destinataire)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(textArea1Message, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1Envoyer, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addComponent(jButton2RetourContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtoncontactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoncontactActionPerformed
-        // TODO add your handling code here:
+    private void jButton2RetourContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2RetourContactActionPerformed
+// TODO add your handling code here:
         new Menu().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButtoncontactActionPerformed
+    }//GEN-LAST:event_jButton2RetourContactActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,14 +147,19 @@ public class Contact extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Contact().setVisible(true);
+        new Contact().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtoncontact;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelTitreContact;
+    private javax.swing.JButton jButton1Envoyer;
+    private javax.swing.JButton jButton2RetourContact;
+    private javax.swing.JLabel jLabel1logoPowerKing;
+    private javax.swing.JLabel jLabel2Destinataire;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1Destinataire;
+    private java.awt.TextArea textArea1Message;
     // End of variables declaration//GEN-END:variables
 }
