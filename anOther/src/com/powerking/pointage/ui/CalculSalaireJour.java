@@ -7,6 +7,7 @@ package com.powerking.pointage.ui;
 
 import com.mysql.jdbc.Connection;
 import com.powerking.pointage.lib.AdminDAO;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -50,7 +51,7 @@ public class CalculSalaireJour extends javax.swing.JFrame {
         jLabel6fois = new javax.swing.JLabel();
         jLabel7NbrheurePres = new javax.swing.JLabel();
         nbrPresence = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        jButtonExporterSalaire = new javax.swing.JButton();
         jButton1RetoueSalaire = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -174,12 +175,22 @@ public class CalculSalaireJour extends javax.swing.JFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton4.setText("Exporter Salaire");
+        jButtonExporterSalaire.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonExporterSalaire.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButtonExporterSalaire.setText("Exporter Salaire");
+        jButtonExporterSalaire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExporterSalaireActionPerformed(evt);
+            }
+        });
 
         jButton1RetoueSalaire.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1RetoueSalaire.setText("Retour");
+        jButton1RetoueSalaire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1RetoueSalaireActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -191,7 +202,7 @@ public class CalculSalaireJour extends javax.swing.JFrame {
                 .addGap(52, 52, 52))
             .addGroup(layout.createSequentialGroup()
                 .addGap(82, 82, 82)
-                .addComponent(jButton4)
+                .addComponent(jButtonExporterSalaire)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1RetoueSalaire, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(127, 127, 127))
@@ -203,7 +214,7 @@ public class CalculSalaireJour extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
+                    .addComponent(jButtonExporterSalaire)
                     .addComponent(jButton1RetoueSalaire))
                 .addGap(36, 36, 36))
         );
@@ -236,6 +247,23 @@ public class CalculSalaireJour extends javax.swing.JFrame {
     private void salaireJourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaireJourActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_salaireJourActionPerformed
+
+    private void jButton1RetoueSalaireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1RetoueSalaireActionPerformed
+        // TODO add your handling code here:
+        new Menu().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1RetoueSalaireActionPerformed
+
+    private void jButtonExporterSalaireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExporterSalaireActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            e.connexion();
+            e.exportCSV();
+        } catch (IOException ex) {
+            Logger.getLogger(Historique.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonExporterSalaireActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,7 +303,7 @@ public class CalculSalaireJour extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Datejour;
     private javax.swing.JButton jButton1RetoueSalaire;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonExporterSalaire;
     private javax.swing.JComboBox jComboBox1ListEmploye;
     private javax.swing.JLabel jLabel1ChoixEmploye;
     private javax.swing.JLabel jLabel2salaireJour;

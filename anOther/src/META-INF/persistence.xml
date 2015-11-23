@@ -3,6 +3,8 @@
   <persistence-unit name="gestion_pointage?zeroDateTimeBehavior=convertToNullPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>another.Employe</class>
+    <class>com.powerking.pointage.lib.ClassEmploye</class>
+    <class>com.powerking.pointage.lib.ClassPointage</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gestion_pointage?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.password" value=""/>

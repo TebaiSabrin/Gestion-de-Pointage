@@ -37,6 +37,7 @@ public class Menu extends javax.swing.JFrame {
         jLabelQuiiter = new javax.swing.JLabel();
         jLabelCalculSalaire = new javax.swing.JLabel();
         jLabelTitreMenu = new javax.swing.JLabel();
+        jLabelImportation = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 204));
@@ -99,6 +100,17 @@ public class Menu extends javax.swing.JFrame {
         jLabelTitreMenu.setForeground(new java.awt.Color(204, 0, 0));
         jLabelTitreMenu.setText("  Gestion de Pointage");
 
+        jLabelImportation.setBackground(new java.awt.Color(0, 0, 255));
+        jLabelImportation.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabelImportation.setForeground(new java.awt.Color(255, 51, 0));
+        jLabelImportation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/powerking/pointage/images/icon_importer.png"))); // NOI18N
+        jLabelImportation.setText("      Importer Fichier ");
+        jLabelImportation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelImportationMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,34 +118,35 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelTitreMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelTitreMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelContact, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelQuiiter, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelStatistique, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelImportation, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelHistorique, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCalculSalaire, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelCalculSalaire, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelStatistique, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelContact, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelQuiiter, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelTitreMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelTitreMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelImportation, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelHistorique)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelCalculSalaire)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelStatistique)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelContact)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelQuiiter)
-                .addGap(40, 40, 40))
+                .addComponent(jLabelQuiiter))
         );
 
         pack();
@@ -168,9 +181,19 @@ public class Menu extends javax.swing.JFrame {
 
     private void jLabelCalculSalaireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCalculSalaireMouseClicked
         // TODO add your handling code here:
-        new SalaireCalcule().setVisible(true);
+        new CalculSalaireJour().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabelCalculSalaireMouseClicked
+
+    private void jLabelImportationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImportationMouseClicked
+        try {
+            // TODO add your handling code here:
+            new Importation().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+    }//GEN-LAST:event_jLabelImportationMouseClicked
 
     /**
      * @param args the command line arguments
@@ -212,6 +235,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCalculSalaire;
     private javax.swing.JLabel jLabelContact;
     private javax.swing.JLabel jLabelHistorique;
+    private javax.swing.JLabel jLabelImportation;
     private javax.swing.JLabel jLabelQuiiter;
     private javax.swing.JLabel jLabelStatistique;
     private javax.swing.JLabel jLabelTitreMenu;

@@ -29,15 +29,15 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelTitreMenu" max="32767" attributes="0"/>
+                  <Component id="jLabelTitreMenu" alignment="0" pref="530" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelContact" min="-2" pref="398" max="-2" attributes="0"/>
-                          <Component id="jLabelQuiiter" alignment="0" min="-2" pref="365" max="-2" attributes="0"/>
-                          <Component id="jLabelStatistique" alignment="0" min="-2" pref="378" max="-2" attributes="0"/>
+                          <Component id="jLabelImportation" alignment="0" min="-2" pref="426" max="-2" attributes="0"/>
                           <Component id="jLabelHistorique" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
-                          <Component id="jLabelCalculSalaire" min="-2" pref="413" max="-2" attributes="0"/>
+                          <Component id="jLabelCalculSalaire" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
+                          <Component id="jLabelStatistique" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
+                          <Component id="jLabelContact" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
+                          <Component id="jLabelQuiiter" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -49,11 +49,13 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelTitreMenu" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabelTitreMenu" min="-2" pref="78" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLabelImportation" min="-2" pref="115" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabelHistorique" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelCalculSalaire" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelStatistique" min="-2" max="-2" attributes="0"/>
@@ -61,7 +63,6 @@
               <Component id="jLabelContact" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelQuiiter" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -174,6 +175,26 @@
         </Property>
         <Property name="text" type="java.lang.String" value="  Gestion de Pointage"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelImportation">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="24" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/powerking/pointage/images/icon_importer.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="      Importer Fichier "/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelImportationMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

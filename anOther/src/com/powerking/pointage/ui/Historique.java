@@ -32,8 +32,7 @@ public class Historique extends javax.swing.JFrame {
     AdminDAO e= new AdminDAO();
     DefaultTableModel model;
     public Historique() throws IOException {
-        e.connexion();
-        e.parcourir();
+       e.connexion();
         model = e.historique();
         initComponents();
         

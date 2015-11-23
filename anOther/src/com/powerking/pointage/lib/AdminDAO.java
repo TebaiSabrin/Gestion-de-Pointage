@@ -120,6 +120,7 @@ public class AdminDAO {
             ex.printStackTrace();}
         }
         return model;
+        
 }
 
     public boolean authentification(String login, String password) {
