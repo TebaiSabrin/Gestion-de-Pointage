@@ -32,6 +32,7 @@ public class RechercherEmploye extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableRechEmploye = new javax.swing.JTable();
         jButtonRechEmploy = new javax.swing.JButton();
+        jButton1RetourRechercherEmpl = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +53,13 @@ public class RechercherEmploye extends javax.swing.JFrame {
             }
         });
 
+        jButton1RetourRechercherEmpl.setText("Retour");
+        jButton1RetourRechercherEmpl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1RetourRechercherEmplActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,6 +77,10 @@ public class RechercherEmploye extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(jButtonRechEmploy)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(jButton1RetourRechercherEmpl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,9 +90,11 @@ public class RechercherEmploye extends javax.swing.JFrame {
                     .addComponent(jLabelNomEmploye)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonRechEmploy))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1RetourRechercherEmpl)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -93,6 +107,12 @@ public class RechercherEmploye extends javax.swing.JFrame {
     private void jButtonRechEmployActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechEmployActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRechEmployActionPerformed
+
+    private void jButton1RetourRechercherEmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1RetourRechercherEmplActionPerformed
+        // TODO add your handling code here:
+        new Menu().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1RetourRechercherEmplActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,6 +151,7 @@ public class RechercherEmploye extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1RetourRechercherEmpl;
     private javax.swing.JButton jButtonRechEmploy;
     private javax.swing.JLabel jLabelNomEmploye;
     private javax.swing.JScrollPane jScrollPane1;
