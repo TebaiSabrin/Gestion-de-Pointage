@@ -374,4 +374,8 @@ public class AdminDAO {
             Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public ResultSet calculsalaireJour(int mat) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

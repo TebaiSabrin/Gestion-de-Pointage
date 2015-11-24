@@ -227,20 +227,15 @@ public class CalculSalaireJour extends javax.swing.JFrame {
         if (jComboBox1ListEmploye.getSelectedIndex()!=-1){
             String[] data = jComboBox1ListEmploye.getSelectedItem().toString().split(";");
             int mat = Integer.parseInt(data[1]);
-            try {
+           // try {
                 // TODO add your handling code here:
-                String req = "SELECT salaire_jour, date, taux_pre FROM employe e , pointage p WHERE p.matricule = e.matricule AND p.matricule = "+mat;
-                Statement s = cnx.createStatement();
-                ResultSet rs = s.executeQuery(req);
-
-                while (rs.next()){
-                    salaireJour.setText(rs.getString(1)+" dt");
-                    Datejour.setText(rs.getString(2));
-                    nbrPresence.setText(rs.getInt(3)+"");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(CalculSalaireJour.class.getName()).log(Level.SEVERE, null, ex);
-            }
+               
+                ResultSet rs = e.calculsalaireJour(mat);    
+           // } 
+            //catch (SQLException ex) {
+             //   Logger.getLogger(CalculSalaireJour.class.getName()).log(Level.SEVERE, null, ex);
+           // }
+            
         }
     }//GEN-LAST:event_jComboBox1ListEmployeActionPerformed
 
