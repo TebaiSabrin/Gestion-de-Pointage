@@ -122,6 +122,46 @@ public class AdminDAO {
         return model;
         
 }
+     public DefaultTableModel Recherche(int mat){
+        Statement s = null;
+        ResultSet rs = null;
+        DefaultTableModel model = new DefaultTableModel();
+        try {
+        String req = "SELECT  nom, departemet, date, heure_deb, heure_fin,taux_pre  FROM employe e , pointage p WHERE e.matricule = p.matricule and e.matricule="+mat;            s = cnx.createStatement();
+            rs = s.executeQuery(req);
+            
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int col = rsmd.getColumnCount();
+            Object[] obj = new Object[col];
+            for (int i=0 ; i < col ; i++)
+            {
+                obj[i]=rsmd.getColumnLabel(i+1);
+            }
+            model.setColumnIdentifiers(obj);
+            while (rs.next()) {
+                Object[] data = new Object[model.getColumnCount()];
+                for(int i=0 ; i < model.getColumnCount() ; i++)
+                {
+                    data[i]= rs.getObject(i+1);
+                }
+                model.addRow(data);
+            }
+            }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+            s.close();
+            rs.close();
+            cnx.close();
+            }
+            catch(Exception ex){
+            ex.printStackTrace();}
+        }
+        return model;
+        
+}
 
     public boolean authentification(String login, String password) {
         Statement s = null;

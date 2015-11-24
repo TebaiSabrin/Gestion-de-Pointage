@@ -253,7 +253,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jLabelRechercherEmployéMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRechercherEmployéMouseClicked
         // TODO add your handling code here:
-        new RechercherEmploye().setVisible(true);
+        new Recherche().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabelRechercherEmployéMouseClicked
 

@@ -5,23 +5,16 @@
  */
 package com.powerking.pointage.ui;
 
-import com.powerking.pointage.lib.AdminDAO;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
- * @author delll
+ * @author utilisateur
  */
-  
-public class RechercherEmploye extends javax.swing.JFrame {
+public class Recherche extends javax.swing.JFrame {
 
     /**
-     * Creates new form RechercherEmploye
+     * Creates new form Recherche
      */
-     AdminDAO e= new AdminDAO();
-    DefaultTableModel model;
-    public RechercherEmploye() {
-        e.connexion();
+    public Recherche() {
         initComponents();
     }
 
@@ -34,22 +27,22 @@ public class RechercherEmploye extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelNomEmploye = new javax.swing.JLabel();
         jTextFieldRech = new javax.swing.JTextField();
+        jLabelNomEmploye = new javax.swing.JLabel();
         jButtonRechEmploy = new javax.swing.JButton();
         jButton1RetourRechercherEmpl = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1Recher = new javax.swing.JTable();
+        jTable1RechEmpl = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabelNomEmploye.setText("Matricule Employe :");
 
         jTextFieldRech.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldRechActionPerformed(evt);
             }
         });
+
+        jLabelNomEmploye.setText("Matricule Employe :");
 
         jButtonRechEmploy.setText("Rechercher");
         jButtonRechEmploy.addActionListener(new java.awt.event.ActionListener() {
@@ -65,29 +58,42 @@ public class RechercherEmploye extends javax.swing.JFrame {
             }
         });
 
-        jTable1Recher.setModel(model);
-        jScrollPane1.setViewportView(jTable1Recher);
+        jTable1RechEmpl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1RechEmpl);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabelNomEmploye)
-                .addGap(31, 31, 31)
-                .addComponent(jTextFieldRech, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jButtonRechEmploy)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1RetourRechercherEmpl)
-                .addGap(210, 210, 210))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelNomEmploye)
+                        .addGap(31, 31, 31)
+                        .addComponent(jTextFieldRech, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addComponent(jButtonRechEmploy)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton1RetourRechercherEmpl)
+                                .addGap(155, 155, 155))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,11 +103,11 @@ public class RechercherEmploye extends javax.swing.JFrame {
                     .addComponent(jLabelNomEmploye)
                     .addComponent(jTextFieldRech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonRechEmploy))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
                 .addComponent(jButton1RetourRechercherEmpl)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -113,8 +119,8 @@ public class RechercherEmploye extends javax.swing.JFrame {
 
     private void jButtonRechEmployActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechEmployActionPerformed
         // TODO add your handling code here:
-        int mat = Integer.parseInt(jTextFieldRech.getText());
-        model=e.Recherche(mat);
+        //int mat = Integer.parseInt(jTextFieldRech.getText());
+       // model=e.Recherche(mat);
     }//GEN-LAST:event_jButtonRechEmployActionPerformed
 
     private void jButton1RetourRechercherEmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1RetourRechercherEmplActionPerformed
@@ -140,21 +146,20 @@ public class RechercherEmploye extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RechercherEmploye.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recherche.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RechercherEmploye.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recherche.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RechercherEmploye.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recherche.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RechercherEmploye.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recherche.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RechercherEmploye().setVisible(true);
+                new Recherche().setVisible(true);
             }
         });
     }
@@ -164,7 +169,7 @@ public class RechercherEmploye extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRechEmploy;
     private javax.swing.JLabel jLabelNomEmploye;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1Recher;
+    private javax.swing.JTable jTable1RechEmpl;
     private javax.swing.JTextField jTextFieldRech;
     // End of variables declaration//GEN-END:variables
 }
