@@ -27,12 +27,13 @@ public class Historique extends javax.swing.JFrame {
     /**
      * Creates new form Form1
      */
-    
+     public Connection cnx;
     
     AdminDAO e= new AdminDAO();
     DefaultTableModel model;
     public Historique() throws IOException {
        e.connexion();
+       
         model = e.historique();
         initComponents();
         

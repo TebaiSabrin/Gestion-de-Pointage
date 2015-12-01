@@ -5,16 +5,20 @@
  */
 package com.powerking.pointage.ui;
 
+import com.powerking.pointage.lib.AdminDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author delll
  */
 public class TableauDeBord extends javax.swing.JFrame {
-
+AdminDAO e= new AdminDAO();
     /**
      * Creates new form TableauDeBord
      */
     public TableauDeBord() {
+        e.connexion();
         initComponents();
     }
 
@@ -28,6 +32,7 @@ public class TableauDeBord extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1RetourTDB = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,21 +43,27 @@ public class TableauDeBord extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Imprimer");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(174, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(33, 33, 33)
                 .addComponent(jButton1RetourTDB)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jButton1RetourTDB)
-                .addContainerGap(157, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(255, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1RetourTDB)
+                    .addComponent(jButton1))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -100,6 +111,7 @@ public class TableauDeBord extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1RetourTDB;
     // End of variables declaration//GEN-END:variables
 }

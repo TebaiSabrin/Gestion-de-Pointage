@@ -24,6 +24,7 @@ public class Importation extends javax.swing.JFrame {
      DefaultTableModel model;
     public Importation() throws IOException  {
          e.connexion();
+        // e.ajoutFichBD();
          e.parcourir();
           model = e.historique();
         initComponents();

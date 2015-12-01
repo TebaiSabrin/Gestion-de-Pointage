@@ -203,9 +203,72 @@ public class AdminDAO {
             return false;
         }
   }
+  //a completer
+  //ajouter les donnees de la base dans un arraylist
+  //ajouter les donnees du fichier csv dans un arraylist
+  //comparer les deux arraylist
+  
+     public void ajoutFichBD(){
+         int i = JOptionPane.showConfirmDialog(null, "Do you want to import some new data ?", "Mise a jour", JOptionPane.YES_NO_OPTION);
+            if (i == JOptionPane.YES_OPTION)
+            {
+                try
+                    {
+                        parcourir1();
+                //comparer la base et le fichier csv
+                //si il ya des donnees qui n existent pas dans la base il les ajoute en appelant
+                        //MiseAJourBD();
+                        
+                JOptionPane.showMessageDialog(null,"base de donnees a ete mise a jour!");
+                        }
+                catch(Exception e)
+                    {
+                         JOptionPane.showMessageDialog(null,e);
+                    }
+
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(null, "VOUS AVEZ IGNORÊ LA MISE A JOUR DE LA BASE");    
+            }
+     }
+      public void parcourir1() throws IOException {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File("."));
+
+        chooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+            public boolean accept(File f) {
+                return f.getName().toLowerCase().endsWith(".csv")
+                        || f.isDirectory();
+            }
+
+            public String getDescription() {
+                return "txt File";
+            }
+        });
+
+        int r = chooser.showOpenDialog(new JFrame());
+        if (r == JFileChooser.APPROVE_OPTION) {
+            String name = chooser.getSelectedFile().getAbsolutePath();
+            System.out.println(name);
+            AdminDAO.remplirBD1(name, cnx);
+        }
+    }
+
+      public static void remplirBD1(String chemin, Connection cnx){
+      
+      
+      //a implementer
+      
+      }
+              
+      
+     public void tableauDeBord(){
      
-
-
+     //a implementer
+     
+     }
+     
     public static void remplirBD(String chemin, Connection cnx) throws FileNotFoundException, IOException, SQLException {
         Statement s = null;
         int i = 0;
